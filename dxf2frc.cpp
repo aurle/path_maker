@@ -67,10 +67,15 @@ int main(int argc, char *argv[])
                 first=0;
                 last_heading = heading;
             }
+            if((heading - last_heading)<-180)
+                printf("rotate %f \n\n", heading + 360 - last_heading);
+            else if ((heading - last_heading)>180)
+                printf("rotate %f \n\n", 360-heading + last_heading);
+            else
+                printf("rotate %f \n\n", heading - last_heading);
 
-            printf("rotate %f \n\n", heading - last_heading);
-            printf("drive straight %f: \n", length);
             //printf("heading %f \n", heading);
+            printf("drive straight %f: \n", length);
             last_heading = heading;
         }
     }
