@@ -28,7 +28,6 @@ int main(int argc, char *argv[])
     int start_x(0), start_y(0), target_x(0), target_y(0);//, heading(0);
 	float heading(0.0);
     float last_heading(0.0);
-    printf("{ \"path\": [");
 
     int first=1;
     while(fgets(line, sizeof line, dxf_fp))
@@ -69,13 +68,12 @@ int main(int argc, char *argv[])
                 last_heading = heading;
             }
 
+            printf("rotate %f \n\n", heading - last_heading);
             printf("drive straight %f: \n", length);
             //printf("heading %f \n", heading);
-            printf("rotate %f \n\n", heading - last_heading);
             last_heading = heading;
         }
     }
-    printf("\n]}\n");
     return 0;
 }
 
