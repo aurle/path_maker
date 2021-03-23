@@ -5,21 +5,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int max(int first, int second)
-{
-    if (first > second)
-        return first;
-    else
-        return second;
-}
-
-int min(int first, int second)
-{
-    if(first < second)
-        return first;
-    else
-        return second;
-}
 
 int main(int argc, char *argv[]) 
 {
@@ -50,10 +35,8 @@ int main(int argc, char *argv[])
             fgets(line,sizeof line, dxf_fp); //Read the y target point
             sscanf(line, "%d", &target_y);
 
-            int delta_x, delta_y;
-
-            float length = sqrt(  pow( max(target_x, start_x) - min(target_x, start_x), 2) 
-                              + pow( max(target_y, start_y) - min(target_y, start_y), 2) );
+            float length = sqrt(  pow( target_x - start_x, 2) 
+                                + pow( target_y - start_y, 2) );
 
             heading = (atan2((target_x-start_x),(target_y-start_y)) * 180 / M_PI);
 
@@ -67,14 +50,13 @@ int main(int argc, char *argv[])
                 first=0;
                 last_heading = heading;
             }
-            if((heading - last_heading)<-180)
+            if((heading - last_heading)<-180 && !first)
                 printf("rotate %f \n\n", heading + 360 - last_heading);
             else if ((heading - last_heading)>180)
                 printf("rotate %f \n\n", 360-heading + last_heading);
             else
                 printf("rotate %f \n\n", heading - last_heading);
 
-            //printf("heading %f \n", heading);
             printf("drive straight %f: \n", length);
             last_heading = heading;
         }
