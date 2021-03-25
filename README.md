@@ -5,7 +5,7 @@ How to create a path for frc
 
 ![](images/image3.png)
 
-3) Set the units of the drawing (options->current drawing preferences->main drawing unit) to be the units used for robot navigation. For example, if the robot code is using inces in drive straight, set units to inches. If using mm in drive straight, set units to mm.
+3) Set the units of the drawing (options->current drawing preferences->main drawing unit) to be the units used for robot navigation. For example, if the robot code is using inches in drive straight, set units to inches. If using mm in drive straight, set units to mm.
 4) If the bottom left hand corner of the image does not represent (0,0) of the axes, move the image with a tools->modify->move/copy command. Select the (0,0) point on the image as the reference point and then (0,0) in the drawing as the new location. If the bottom left hand corner of the image is (0,0) this step can be skipped, because the image is already there. If the image does have to be moved, there is a bug in librecad for Mac, so if this is being done on a Mac the moved image may not be visible immediately after the move. Save the file, close it, and re-open it and will appear correctly. If (0,0) is the bottom left corner of the image, you can skip this step entirely.
 5) Now the image needs to be scaled to make it match the units of the drawing. Move the cursor to a known position on the image. For example, on the above image, it is known that D2 is at 5 feet x, 5 feet y. When the cursor is moved over that point, there will be coordinates displayed in the bottom left hand corner of the screen. They are displayed in the units the drawing was set to. So if the drawing is set to inches, 5 feet would be 60 and 60. If the coordinates displayed are larger than 60, the image needs to be scaled down so the image matches the units of the drawing. Divide the number the point really is by the number reported when the cursor is over the point. So, if the number displayed when the cursor is over the point is 332, 60/332 = 0.18072.     
 6) Select the image and then select tools->modify scale.
@@ -28,7 +28,7 @@ How to create a path for frc
 
 ![](images/image4.png)
 
-14) Now, the path it is desired the robot travel and just be drawing on the display. In this example, the example path is traced exactly. Just draw straight lines as needed to duplicate the path. The start point will be (0,0) with no heading and all of the following lines will be reference from there. Any path desired can be created.
+14) Now, the path it is desired the robot travel can just be drawing on the display. In this example, the example path is traced exactly. Just draw straight lines as needed to duplicate the path. The start point will be (0,0) with no heading and all of the following lines will be reference from there. Any path desired can be created.
 
 ![](images/image1.png)
 
