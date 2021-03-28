@@ -1,4 +1,6 @@
-How to create a path for frc
+# How to create a path for frc
+
+The purpose of this project was to originally to render a series of poses or waypoints for a robot to pass through by simply drawing them on a screen. From there, it has been changed so that FRC teams who have implemented drive straight and rotate commands on their robot can draw paths and generate the drive straight and rotate commands they can feed into their robot to have it follow the path. The idea is to provide and ability to generate more complex paths in a visual way using the existing drive straight and rotate commands they may already have.
 
 1) Install LibreCad  https://librecad.org/
 2) Get an image of  the playing field or a path that you want to trace. Do this with a screenshot. To make things easier, try to create the image so (0,0) is the bottom left hand corner of the image.
