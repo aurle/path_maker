@@ -30,7 +30,7 @@ The purpose of this project was to originally to render a series of poses or way
 
 ![](images/image4.png)
 
-14) Now, the path it is desired the robot travel can just be drawing on the display. In this example, the example path is traced exactly. Just draw straight lines as needed to duplicate the path. The start point will be (0,0) with no heading and all of the following lines will be reference from there. Any path desired can be created.
+14) Now, the path it is desired the robot travel can just be drawn on the display. In this example, the example path is traced exactly. Just draw straight lines as needed to duplicate the path. The start point will be (0,0) with no heading and all of the following lines will be reference from there. Any path desired can be created.
 
 ![](images/image1.png)
 
