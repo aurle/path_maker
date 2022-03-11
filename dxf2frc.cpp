@@ -13,6 +13,7 @@ int main(int argc, char *argv[])
     int start_x(0), start_y(0), target_x(0), target_y(0);//, heading(0);
 	float heading(0.0);
     float last_heading(0.0);
+    float rotate(0.0); //- robot rotates left, + robot rotates right
 
     int first=1;
     while(fgets(line, sizeof line, dxf_fp))
@@ -38,8 +39,10 @@ int main(int argc, char *argv[])
             float length = sqrt(  pow( target_x - start_x, 2) 
                                 + pow( target_y - start_y, 2) );
 
-            heading = (atan2((target_x-start_x),(target_y-start_y)) * 180 / M_PI);
+            heading = (atan2((target_y-start_y),(target_x-start_x)) * 180 / M_PI);
 
+            // The heading from the above calculation is +/- 180 degrees
+            // Normalize heading to a number between 0 - 360 with 0 being right, rotating counter clockwise
             if (heading < 0)
             {
                 heading += 360.00;
@@ -50,12 +53,20 @@ int main(int argc, char *argv[])
                 first=0;
                 last_heading = heading;
             }
-            if((heading - last_heading)<-180 && !first)
-                printf("rotate %f \n\n", heading + 360 - last_heading);
-            else if ((heading - last_heading)>180)
-                printf("rotate %f \n\n", 360-heading + last_heading);
-            else
-                printf("rotate %f \n\n", heading - last_heading);
+            else {
+                rotate = last_heading - heading;
+                //Rotation should never be > +/- 180 degrees. If it is, rotate in the other direction, because
+                //it will be a shorter distance, aka a faster move. For exampe 185 degrees right == 95 degrees left
+                if (rotate > 180)
+                {
+                    rotate -= 360;
+                }
+                else if (rotate < -180)
+                {
+                    rotate +=360;
+                }
+                printf("rotate %f \n\n", rotate);
+            }
 
             printf("drive straight %f: \n", length);
             last_heading = heading;
